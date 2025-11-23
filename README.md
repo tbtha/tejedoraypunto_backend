@@ -149,3 +149,17 @@ Para modificar la documentación:
 4. ✅ **¡Listo para usar la API!**
 
 ---
+
+
+
+#### 23112025
+
+📋 Resumen de lo que configuré:
+✅ Endpoints PÚBLICOS (sin token):
+GET /api/productos y /api/productos/{id} - Ver productos
+GET /api/categorias y /api/categorias/{id} - Ver categorías
+POST /auth/login - Login
+🔒 Endpoints PROTEGIDOS (requieren token):
+POST/PUT/DELETE /api/productos/** - Modificar productos
+POST/PUT/DELETE /api/categorias/** - Modificar categorías
+TODO /api/usuarios/** - Gestión de usuarios

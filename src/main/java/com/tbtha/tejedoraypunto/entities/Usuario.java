@@ -31,5 +31,26 @@ public class Usuario {
     // se establecerá automáticamente con la fecha actual del sistema
     private Date fechaCreacion = new Date();
 
+    // Métodos de conveniencia para Spring Security
+    public String getUsername() {
+        return this.email;
+    }
+
+    public boolean isEnabled() {
+        return this.activo != null && this.activo;
+    }
+
+    public Rol getRol() {
+        try {
+            return Rol.valueOf(this.rol);
+        } catch (Exception e) {
+            return Rol.CLIENTE;
+        }
+    }
+
+    public enum Rol {
+        ADMIN, CLIENTE
+    }
+
     
 }

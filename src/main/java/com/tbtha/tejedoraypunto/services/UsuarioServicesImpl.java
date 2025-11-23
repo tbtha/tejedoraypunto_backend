@@ -3,6 +3,7 @@ package com.tbtha.tejedoraypunto.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.tbtha.tejedoraypunto.entities.Usuario;
@@ -11,11 +12,20 @@ import com.tbtha.tejedoraypunto.repositories.UsuarioRepositories;
 @Service
 public class UsuarioServicesImpl implements UsuarioServices {
     
- @Autowired
+    @Autowired
     private UsuarioRepositories usuarioRepositories;
+    
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public Usuario crear(Usuario usuario){
+        // Encriptar la contraseña antes de guardar
+        if (usuario.getPassword() != null && !usuario.getPassword().startsWith("$2a$")) {
+            usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+        }
+        // El rol ya tiene valor por defecto "CLIENTE" en la entidad
+        // No es necesario validar, setRol solo si quieres forzarlo siempre
         return usuarioRepositories.save(usuario);
     }
     @Override
@@ -43,7 +53,7 @@ public class UsuarioServicesImpl implements UsuarioServices {
         existente.setDireccion(usuarioActualizado.getDireccion());
         existente.setRegion(usuarioActualizado.getRegion());
         existente.setComuna(usuarioActualizado.getComuna());
-        existente.setRol(usuarioActualizado.getRol());
+        // existente.setRol(usuarioActualizado.getRol());
         // existente.setPassword(usuarioActualizado.getPassword());
         return usuarioRepositories.save(existente); 
     }   

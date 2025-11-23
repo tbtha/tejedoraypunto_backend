@@ -1,7 +1,7 @@
 -- Usuario Administrador (password: admin123)
 INSERT IGNORE INTO usuario (id, rut, nombre, apellidos, email, direccion, region, comuna, rol, password, activo, fecha_creacion) VALUES
-(1, '11111111-1', 'Admin', 'Sistema', 'tejedoraypunto@gmail.com', '', 'Metropolitana', 'Santiago', 'ADMIN', 'admin123', true, NOW()),
-(2, '22222222-2', 'Cliente', 'Sistema', 'cliente@gmail.com', '', 'Metropolitana', 'Santiago', 'CLIENTE', 'cliente123', true, NOW());
+(1, '11111111-1', 'Admin', 'Sistema', 'tejedoraypunto@gmail.com', '', 'Región Metropolitan', 'Maipú', 'ADMIN', '$2a$10$OO1EosoTiwIpIXga0ixPbu2bjevJuxCIK0ozcLXPhnP/mRKbqrGZa', true, NOW()),
+(2, '22222222-2', 'Cliente', 'Sistema', 'cliente@gmail.com', '', 'Región Metropolitan', 'Maipú', 'CLIENTE', '$2a$10$7vLBKDwS2H/6ufeaO05dZ.DvcCrkvVuKVSl399pVgr419RZVrC/zu', true, NOW());
 
 -- Categorías
 INSERT IGNORE INTO categoria (id, nombre) VALUES 
