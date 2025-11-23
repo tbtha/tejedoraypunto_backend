@@ -33,3 +33,15 @@ INSERT IGNORE INTO producto (id, nombre, descripcion, precio, stock, imagen, cat
 (13, 'Gorro Playa', 'Diseño fresco y elegante para el sol', 18000, 4, 'img/summer/gorro_v1.jpeg', 5, true, NOW()),
 (14, 'Gorro Sol', 'Tejido calado para días soleados', 15000, 5, 'img/summer/gorro_v2.jpeg', 5, true, NOW()),
 (15, 'Gorro Brisa', 'Ligero y transpirable con ala ancha', 20000, 3, 'img/summer/gorro_v3.jpeg', 5, true, NOW());
+
+-- Boletas
+INSERT IGNORE INTO boleta (id, usuario_id, fecha_compra, total, neto, iva, estado, metodo_pago, direccion_envio, comuna_envio, region_envio) VALUES
+(1, 2, '2025-11-23 20:46:50.000000', 216000, 181512, 34487, 'PENDIENTE', 'TRANSFERENCIA', 'capitan avalos 2383', 'Concepción', 'Región del Biobío'),
+(2, 1, '2025-11-23 21:55:44.000000', 120000, 100840, 19159, 'PENDIENTE', 'TRANSFERENCIA', 'capitan avalos 2383', 'Santiago', 'Región Metropolitana');
+
+-- Detalle de Boletas
+INSERT IGNORE INTO detalle_boleta (id, boleta_id, producto_id, cantidad, precio_unitario, subtotal, neto, iva) VALUES
+(1, 1, 2, 2, 58000, 116000, 97478, 18521),
+(2, 1, 4, 1, 45000, 45000, 37815, 7184),
+(3, 1, 1, 1, 55000, 55000, 46218, 8781),
+(4, 2, 3, 2, 60000, 120000, 100840, 19159);
