@@ -40,7 +40,7 @@ public class Usuario {
         return this.activo != null && this.activo;
     }
 
-    public Rol getRol() {
+    public Rol getRolEnum() {
         try {
             return Rol.valueOf(this.rol);
         } catch (Exception e) {

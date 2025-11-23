@@ -53,8 +53,8 @@ public class UsuarioServicesImpl implements UsuarioServices {
         existente.setDireccion(usuarioActualizado.getDireccion());
         existente.setRegion(usuarioActualizado.getRegion());
         existente.setComuna(usuarioActualizado.getComuna());
-        // existente.setRol(usuarioActualizado.getRol());
-        // existente.setPassword(usuarioActualizado.getPassword());
+        existente.setRol(usuarioActualizado.getRol());
+        // No actualizar password aquí, debería tener un endpoint separado
         return usuarioRepositories.save(existente); 
     }   
     @Override
