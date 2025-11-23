@@ -61,6 +61,19 @@ public class SecurityConfig {
                     .requestMatchers("POST", "/api/categorias/**").hasRole("ADMIN")
                     .requestMatchers("PUT", "/api/categorias/**").hasRole("ADMIN")
                     .requestMatchers("DELETE", "/api/categorias/**").hasRole("ADMIN")
+                    // Boletas - crear requiere autenticación, ver solo propias o ADMIN ve todas
+                    .requestMatchers("POST", "/api/boletas").authenticated()
+                    .requestMatchers("GET", "/api/boletas/usuario/**").authenticated()
+                    .requestMatchers("GET", "/api/boletas/**").hasRole("ADMIN")
+                    .requestMatchers("PUT", "/api/boletas/**").hasRole("ADMIN")
+                    .requestMatchers("PATCH", "/api/boletas/**").hasRole("ADMIN")
+                    .requestMatchers("DELETE", "/api/boletas/**").hasRole("ADMIN")
+                    // Detalles de Boleta - requiere autenticación
+                    .requestMatchers("POST", "/api/detalles-boleta").authenticated()
+                    .requestMatchers("GET", "/api/detalles-boleta/boleta/**").authenticated()
+                    .requestMatchers("GET", "/api/detalles-boleta/**").hasRole("ADMIN")
+                    .requestMatchers("PUT", "/api/detalles-boleta/**").hasRole("ADMIN")
+                    .requestMatchers("DELETE", "/api/detalles-boleta/**").hasRole("ADMIN")
                     // Imágenes - públicas para GET, ADMIN para modificar
                     .requestMatchers("GET", "/api/imagenes/**").permitAll()
                     .requestMatchers("/api/imagenes/**").hasRole("ADMIN")
